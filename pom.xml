@@ -32,7 +32,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.0.0</version>
                 <configuration>
-                    <imageName>example</imageName>
+                    <imageName>${docker.image.prefix}/beatsapp</imageName>
                     <dockerDirectory>docker</dockerDirectory>
                     <resources>
                         <resource>

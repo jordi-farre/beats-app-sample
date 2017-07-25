@@ -19,21 +19,21 @@ interfaces:
 protocols:
   icmp:
     # Enable ICMPv4 and ICMPv6 monitoring. Default: false
-    enabled: true
+    enabled: false
 
   dns:
     # Configure the ports where to listen for DNS traffic. You can disable
     # the DNS protocol by commenting out the list of ports.
-    ports: [53]
+    #ports: [53]
 
     # include_authorities controls whether or not the dns.authorities field
     # (authority resource records) is added to messages.
     # Default: false
-    include_authorities: true
+    #include_authorities: true
     # include_additionals controls whether or not the dns.additionals field
     # (additional resource records) is added to messages.
     # Default: false
-    include_additionals: true
+    #include_additionals: true
 
     # send_request and send_response control whether or not the stringified DNS
     # request and response message are added to the result.
@@ -48,6 +48,9 @@ protocols:
     # Configure the ports where to listen for HTTP traffic. You can disable
     # the HTTP protocol by commenting out the list of ports.
     ports: [80, 8080, 8000, 5000, 8002]
+    send_request: true
+    send_response: true # If you also want text/xml responses.
+    include_body_for: ['text/html']
 
     # Uncomment the following to hide certain parameters in URL or forms attached
     # to HTTP requests. The names of the parameters are case insensitive.
@@ -160,7 +163,7 @@ output:
     hosts: ["elasticsearch:9200"]
 
     # Optional protocol and basic auth credentials.
-    protocol: "https"
+    protocol: "http"
     username: "elastic"
     password: "changeme"
 
