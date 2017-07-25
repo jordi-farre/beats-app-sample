@@ -50,7 +50,7 @@ protocols:
     ports: [80, 8080, 8000, 5000, 8002]
     send_request: true
     send_response: true # If you also want text/xml responses.
-    include_body_for: ['text/html']
+    include_body_for: ['text/html', 'text/plain', 'application/json']
 
     # Uncomment the following to hide certain parameters in URL or forms attached
     # to HTTP requests. The names of the parameters are case insensitive.

@@ -40,16 +40,6 @@
                             <directory>${project.build.directory}</directory>
                             <include>${project.build.finalName}.jar</include>
                         </resource>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.basedir}</directory>
-                            <include>packetbeat.yml</include>
-                        </resource>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.basedir}</directory>
-                            <include>docker-entrypoint.sh</include>
-                        </resource>
                     </resources>
                 </configuration>
             </plugin>
