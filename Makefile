@@ -3,3 +3,4 @@ createImage:
 	mvn clean package docker:build
 run:
 	docker-compose up
+all: createImage run
