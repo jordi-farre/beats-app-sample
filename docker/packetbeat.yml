@@ -47,7 +47,7 @@ packetbeat.interfaces.device: any
 
 packetbeat.flows:
   # Enable Network flows. Default: true
-  #enabled: true
+  enabled: false
 
   # Set network flow timeout. Flow is killed if no packet is received before being
   # timed out.
@@ -58,13 +58,13 @@ packetbeat.flows:
 
 #========================== Transaction protocols =============================
 
-#packetbeat.protocols.icmp:
+packetbeat.protocols.icmp:
   # Enable ICMPv4 and ICMPv6 monitoring. Default: true
-  #enabled: true
+  enabled: false
 
-#packetbeat.protocols.amqp:
+packetbeat.protocols.amqp:
   # Enable AMQP monitoring. Default: true
-  #enabled: true
+  enabled: false
 
   # Configure the ports where to listen for AMQP traffic. You can disable
   # the AMQP protocol by commenting out the list of ports.
@@ -126,9 +126,9 @@ packetbeat.flows:
   # This option indicates which Operator/Operators will be ignored.
   #ignored_ops: ["SUPPORTED","OPTIONS"]
 
-#packetbeat.protocols.dns:
+packetbeat.protocols.dns:
   # Enable DNS monitoring. Default: true
-  #enabled: true
+  enabled: false
 
   # Configure the ports where to listen for DNS traffic. You can disable
   # the DNS protocol by commenting out the list of ports.
@@ -158,11 +158,11 @@ packetbeat.flows:
 
 packetbeat.protocols.http:
   # Enable HTTP monitoring. Default: true
-  #enabled: true
+  enabled: true
 
   # Configure the ports where to listen for HTTP traffic. You can disable
   # the HTTP protocol by commenting out the list of ports.
-  ports: [80, 8080, 8000, 5000, 8002]
+  ports: [80, 8080]
 
   # Uncomment the following to hide certain parameters in URL or forms attached
   # to HTTP requests. The names of the parameters are case insensitive.
@@ -182,7 +182,7 @@ packetbeat.protocols.http:
 
   # The list of content types for which Packetbeat includes the full HTTP
   # payload in the response field.
-  include_body_for: ['text/html','plain/text']
+  include_body_for: ['text/html','text/plain', 'application/json']
 
   # If the Cookie or Set-Cookie headers are sent, this option controls whether
   # they are split into individual values.
@@ -209,9 +209,9 @@ packetbeat.protocols.http:
   # be trimmed to this size. Default is 10 MB.
   #max_message_size: 10485760
 
-#packetbeat.protocols.memcache:
+packetbeat.protocols.memcache:
   # Enable memcache monitoring. Default: true
-  #enabled: true
+  enabled: false
 
   # Configure the ports where to listen for memcache traffic. You can disable
   # the Memcache protocol by commenting out the list of ports.
@@ -258,9 +258,9 @@ packetbeat.protocols.http:
   # incoming responses, but sent to Elasticsearch immediately.
   #transaction_timeout: 10s
 
-#packetbeat.protocols.mysql:
+packetbeat.protocols.mysql:
   # Enable mysql monitoring. Default: true
-  #enabled: true
+  enabled: false
 
   # Configure the ports where to listen for MySQL traffic. You can disable
   # the MySQL protocol by commenting out the list of ports.
@@ -278,9 +278,9 @@ packetbeat.protocols.http:
   # incoming responses, but sent to Elasticsearch immediately.
   #transaction_timeout: 10s
 
-#packetbeat.protocols.pgsql:
+packetbeat.protocols.pgsql:
   # Enable pgsql monitoring. Default: true
-  #enabled: true
+  enabled: false
 
   # Configure the ports where to listen for Pgsql traffic. You can disable
   # the Pgsql protocol by commenting out the list of ports.
@@ -298,9 +298,9 @@ packetbeat.protocols.http:
   # incoming responses, but sent to Elasticsearch immediately.
   #transaction_timeout: 10s
 
-#packetbeat.protocols.redis:
+packetbeat.protocols.redis:
   # Enable redis monitoring. Default: true
-  #enabled: true
+  enabled: false
 
   # Configure the ports where to listen for Redis traffic. You can disable
   # the Redis protocol by commenting out the list of ports.
@@ -318,9 +318,9 @@ packetbeat.protocols.http:
   # incoming responses, but sent to Elasticsearch immediately.
   #transaction_timeout: 10s
 
-#packetbeat.protocols.thrift:
+packetbeat.protocols.thrift:
   # Enable thrift monitoring. Default: true
-  #enabled: true
+  enabled: false
 
   # Configure the ports where to listen for Thrift-RPC traffic. You can disable
   # the Thrift-RPC protocol by commenting out the list of ports.
@@ -373,9 +373,9 @@ packetbeat.protocols.http:
   # incoming responses, but sent to Elasticsearch immediately.
   #transaction_timeout: 10s
 
-#packetbeat.protocols.mongodb:
+packetbeat.protocols.mongodb:
   # Enable mongodb monitoring. Default: true
-  #enabled: true
+  enabled: false
 
   # Configure the ports where to listen for MongoDB traffic. You can disable
   # the MongoDB protocol by commenting out the list of ports.
@@ -403,9 +403,9 @@ packetbeat.protocols.http:
   # incoming responses, but sent to Elasticsearch immediately.
   #transaction_timeout: 10s
 
-#packetbeat.protocols.nfs:
+packetbeat.protocols.nfs:
   # Enable NFS monitoring. Default: true
-  #enabled: true
+  enabled: false
 
   # Configure the ports where to listen for NFS traffic. You can disable
   # the NFS protocol by commenting out the list of ports.
@@ -1076,7 +1076,7 @@ output.elasticsearch:
 
 # Logging to rotating files files. Set logging.to_files to false to disable logging to
 # files.
-logging.to_files: true
+logging.to_files: false
 logging.files:
   # Configure the path where the logs are written. The default is the logs directory
   # under the home path (the binary location).
